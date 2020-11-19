@@ -8,6 +8,8 @@ import org.bukkit.plugin.messaging.PluginMessageListener;
 import java.nio.charset.StandardCharsets;
 
 public class ChannelRainMiner implements PluginMessageListener {
+    // Todo: Rain miner support.
+
     public final static int SIG = 3611523;
 
     public final static String CHANNEL_NAME = "rainminer:excavate";

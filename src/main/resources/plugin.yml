@@ -3,7 +3,6 @@ version: @version@
 main: cx.rain.mc.bukkit.fastexcavator.FastExcavator
 api-version: 1.16
 prefix: FastExcavator
-load: STARTUP
-depend: [ ProtocolLib ]
+load: POSTWORLD
 authors: [ AmemiyaShigure ]
 description: A vein miner with another implemention.
