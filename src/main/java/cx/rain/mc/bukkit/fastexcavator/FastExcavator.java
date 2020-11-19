@@ -23,8 +23,15 @@ public final class FastExcavator extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        // Todo: Rain miner support.
+//        getServer().getMessenger().registerIncomingPluginChannel(this,
+//                ChannelRainMiner.CHANNEL_NAME, new ChannelRainMiner());
+
         getServer().getMessenger().registerIncomingPluginChannel(this,
-                ChannelRainMiner.CHANNEL_NAME, new ChannelRainMiner());
+                ChannelDiggusMaximus.CHANNEL_NAME, new ChannelDiggusMaximus());
+
+        getServer().getMessenger().registerOutgoingPluginChannel(this,
+                ChannelDiggusMaximus.CHANNEL_NAME);
 
         Bukkit.getPluginManager().registerEvents(new EventPlayerJoin(), this);
 

@@ -21,22 +21,20 @@ public class Excavate {
     }
 
     private final Player bukkitPlayer;
+    private final Block startBlock;
     private final BlockPosition startPos;
     private final EntityPlayer player;
     private final WorldServer world;
-    private final Item startTool;
-    private final EnumDirection facing;
     private final Deque<BlockPosition> points = new ArrayDeque<>();
 
     private int mined = 0;
 
     public Excavate(Player bukkitPlayerIn, BlockPosition blockPos, EntityPlayer playerEntity) {
         bukkitPlayer = bukkitPlayerIn;
+        startBlock = getBlockAt(playerEntity.world, blockPos);
         startPos = blockPos;
         player = playerEntity;
         world = playerEntity.getWorld().getMinecraftWorld();
-        startTool = playerEntity.getItemInMainHand().getItem();
-        facing = ((MovingObjectPositionBlock) playerEntity.a(10, 0, false)).getDirection();
     }
 
     public void start() {
@@ -51,7 +49,6 @@ public class Excavate {
         if (player.playerInteractManager.breakBlock(pos)) {
             points.add(pos);
             mined++;
-
             ChannelDiggusMaximus.sendExcavatePacket(bukkitPlayer, pos);
         }
     }
@@ -66,16 +63,14 @@ public class Excavate {
 
     private void excavate(BlockPosition pos) {
         // Todo: Server configurations (max mine blocks count).
-        if (mined >= 80) {
+        if (mined >= 60) {
             return;
         }
-
-        if (isSame(getBlockAt(world, pos), getBlockAt(world, startPos))
+        if (isSame(getBlockAt(world, pos), startBlock)
                 && canMine(pos, startPos)
                 && player.playerInteractManager.breakBlock(pos)) {
             points.add(pos);
             mined++;
-
             ChannelDiggusMaximus.sendExcavatePacket(bukkitPlayer, pos);
         }
     }
@@ -93,8 +88,6 @@ public class Excavate {
     }
 
     private static boolean canMine(BlockPosition pos, BlockPosition startPos) {
-        return pos.a(startPos, 10);
+        return pos.a(startPos, 11);
     }
-
-
 }

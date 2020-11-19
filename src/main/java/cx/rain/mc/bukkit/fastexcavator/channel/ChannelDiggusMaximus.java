@@ -16,7 +16,7 @@ public class ChannelDiggusMaximus implements PluginMessageListener {
 
     @Override
     public void onPluginMessageReceived(String channel, Player player, byte[] message) {
-        if (channel != CHANNEL_NAME) {
+        if (!channel.equals(CHANNEL_NAME)) {
             return;
         }
 
