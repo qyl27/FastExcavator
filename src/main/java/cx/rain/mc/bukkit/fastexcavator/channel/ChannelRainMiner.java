@@ -21,7 +21,5 @@ public class ChannelRainMiner implements PluginMessageListener {
             return;
         }
         String msg = buf.toString(StandardCharsets.UTF_8);
-
-
     }
 }

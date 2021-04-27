@@ -1,7 +1,6 @@
 package cx.rain.mc.bukkit.fastexcavator.excavator;
 
 import cx.rain.mc.bukkit.fastexcavator.channel.ChannelDiggusMaximus;
-import io.netty.buffer.Unpooled;
 import net.minecraft.server.v1_16_R3.*;
 import org.bukkit.entity.Player;
 

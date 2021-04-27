@@ -3,7 +3,6 @@ package cx.rain.mc.bukkit.fastexcavator.channel;
 import cx.rain.mc.bukkit.fastexcavator.FastExcavator;
 import cx.rain.mc.bukkit.fastexcavator.excavator.Excavate;
 import io.netty.buffer.Unpooled;
-import org.bukkit.Location;
 import net.minecraft.server.v1_16_R3.BlockPosition;
 import net.minecraft.server.v1_16_R3.EntityPlayer;
 import net.minecraft.server.v1_16_R3.PacketDataSerializer;
